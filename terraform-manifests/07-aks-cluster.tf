@@ -5,6 +5,7 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
   resource_group_name = azurerm_resource_group.aks_rg.name
   kubernetes_version  = data.azurerm_kubernetes_service_versions.current.latest_version
   node_resource_group = "${azurerm_resource_group.aks_rg.name}-nrg"
+  
 
 
   default_node_pool {
@@ -48,7 +49,8 @@ role_based_access_control {
   enabled = true
   azure_active_directory {
     managed                = true
-    admin_group_object_ids = [azuread_group.aks_administrators.id]
+    #admin_group_object_ids = [azuread_group.aks_administrators.id]
+    admin_group_object_ids = [data.azuread_group.admin_group.object_id]
   }
 }  
 
