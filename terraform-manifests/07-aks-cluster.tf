@@ -49,9 +49,9 @@ role_based_access_control {
   enabled = true
   azure_active_directory {
     managed                = true
-    #admin_group_object_ids = [azuread_group.aks_administrators.id]
+    admin_group_object_ids = [azuread_group.aks_administrators.id]
     #admin_group_object_ids = [data.azuread_group.admin_group.object_id]
-    admin_group_object_ids = ["e8b91211-e346-466a-b58c-ea5bf4ad943b"]
+    #admin_group_object_ids = ["e8b91211-e346-466a-b58c-ea5bf4ad943b"]
   }
 }  
 
